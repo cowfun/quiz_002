@@ -5,9 +5,19 @@
       <div class = "col-12">
         <div class="card mt-3">
           <div class="card-body">
-            <h4><%= link_to idea.title, idea_path(idea), class: 'card-title' %></h4>
-            <p class="card-text"><%= idea.description %></p>
-            <p class="card-text mt-2"><strong> By: <%= idea.user&.first_name %></strong></p>
+            <h4><%= link_to idea.title, idea_path(idea), class: 'card-title' %> </h4>
+            <div class='extend-btn'>
+              <div class="the-btn hide">
+                <%= image_tag 'extend.jpg', style: 'width: 20px; border-radius: 5px;' %>
+              </div>
+              <div class="the-btn">
+                <%= image_tag 'shrink.jpg', style: 'width: 20px; border-radius: 5px;' %>
+              </div>
+              <div class = 'interior-card'>
+                <p class="card-text"><%= idea.description %></p>
+                <p class="card-text mt-2"><strong> By: <%= idea.user&.first_name %></strong></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
