@@ -6,16 +6,20 @@
 
       <p class="card-text mt-2"><%= @idea.description %></p>
 
-      <div class = "text-right">
-        <%= link_to 'Edit', edit_idea_path(@idea), class:"btn btn-outline-primary" %>
+      <p class="card-text mt-2"><strong> By: <%= @idea.user&.first_name %></strong></p>
 
-        <%= link_to(
-            'Delete',
-            idea_path(@idea),
-            data: {confirm: 'Are you sure?'},
-            method: :delete,
-            class:"btn btn-outline-primary") %>
-      </div>
+      <% if user_signed_in? && can?(:manage, @idea)%>
+        <div class = "text-right">
+          <%= link_to 'Edit', edit_idea_path(@idea), class:"btn btn-outline-primary" %>
+
+          <%= link_to(
+              'Delete',
+              idea_path(@idea),
+              data: {confirm: 'Are you sure?'},
+              method: :delete,
+              class:"btn btn-outline-primary") %>
+        </div>
+      <% end %>
 
     </div>
   </div>

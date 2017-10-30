@@ -1,0 +1,43 @@
+<div class = "container-fluid mt-3">
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container row">
+      <div class="col-4">
+      </div>
+      <div class="col-5">
+        <h4>Sign Up</h4>
+
+        <%= form_for @user do |f| %>
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+
+          <div class = 'text-right'>
+            <%= f.submit 'Create Account', class:"btn btn-outline-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
