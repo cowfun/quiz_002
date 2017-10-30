@@ -20,8 +20,47 @@
               class:"btn btn-outline-primary") %>
         </div>
       <% end %>
-
     </div>
   </div>
+
+  <hr>
+
+  <div class = "container-fluid mt-3">
+
+    <%= form_for [@idea, @review] do |f| %>
+
+      <h4> Leave A Review </h4>
+      <div>
+        <div class="form-group">
+          <%= f.text_area :body, class: 'form-control', rows: '5' %>
+        </div>
+      </div>
+      <div class = 'text-right'>
+        <%= f.submit 'Create Review', class:"btn btn-outline-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <hr>
+
+  <% @reviews.each do |review| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <p class="card-text"><%= review.body %> </p>
+        <p class="card-text mt-2"><strong> By: <%= review.user&.first_name %></strong></p>
+        <% if can?(:manage, review)%>
+          <div class = "text-right">
+            <%= link_to(
+                'Delete',
+                review_path(review),
+                data: {confirm: 'Are you sure?'},
+                method: :delete,
+                class:"btn btn-outline-primary") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
 </div>
