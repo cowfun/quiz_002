@@ -1,0 +1,23 @@
+<div class = "container-fluid mt-3">
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"><%= @idea.title %></h4>
+
+      <p class="card-text mt-2"><%= @idea.description %></p>
+
+      <div class = "text-right">
+        <%= link_to 'Edit', edit_idea_path(@idea), class:"btn btn-outline-primary" %>
+
+        <%= link_to(
+            'Delete',
+            idea_path(@idea),
+            data: {confirm: 'Are you sure?'},
+            method: :delete,
+            class:"btn btn-outline-primary") %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
